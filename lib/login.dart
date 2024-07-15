@@ -4,7 +4,7 @@ import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:myapp/contri.dart';
 import 'package:myapp/loginpage.dart';
 import 'package:myapp/popup_contry.dart';
-import 'package:myapp/loginljt.dart';
+import 'package:myapp/login1.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -181,7 +181,7 @@ class _LoginState extends State<Login> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const LoginScreen()),
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
                 ); // Handle issue with number
               },
               child: Column(
@@ -213,7 +213,10 @@ class _LoginState extends State<Login> {
                   padding: const EdgeInsets.all(12.0),
                 ),
                 onPressed: () {
-                  // Handle continue action
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                ); 
                 },
                 child: const Text(
                   'Continue',

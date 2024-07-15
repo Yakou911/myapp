@@ -60,10 +60,17 @@ class _KodeNegaraDialogState extends State<KodeNegaraDialog> {
       height: MediaQuery.of(context).size.height * 0.8,
       child: Column(
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-                SizedBox(height: 16),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0), // Atur margin horizontal sesuai kebutuhan
+            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+            child: Text(
+              'Cari kode negara',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
             child: TextField(
               controller: _searchController,
               decoration: InputDecoration(
@@ -100,12 +107,12 @@ class _KodeNegaraDialogState extends State<KodeNegaraDialog> {
                     ),
                     ListView.builder(
                       shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
                       itemCount: _negaraPopuler.length,
                       itemBuilder: (context, index) {
                         final negara = _negaraPopuler[index];
                         return Container(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 16.0), // Add padding here
+                          padding: EdgeInsets.symmetric(horizontal: 16.0),
                           decoration: BoxDecoration(
                             border: Border(
                               bottom: BorderSide(
@@ -115,12 +122,21 @@ class _KodeNegaraDialogState extends State<KodeNegaraDialog> {
                             ),
                           ),
                           child: ListTile(
-                            leading: Text(negara['flag']),
+                            leading: Text(
+                              negara['flag'],
+                              style: TextStyle(fontSize: 28),
+                            ),
                             title: Text(
                               negara['nama'],
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
                             ),
-                            trailing: Text(negara['kode']),
+                            trailing: Text(
+                              negara['kode'],
+                              style: TextStyle(fontSize: 18),
+                            ),
                           ),
                         );
                       },
@@ -142,12 +158,12 @@ class _KodeNegaraDialogState extends State<KodeNegaraDialog> {
                     ),
                     ListView.builder(
                       shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
                       itemCount: _semuaNegara.length,
                       itemBuilder: (context, index) {
                         final negara = _semuaNegara[index];
                         return Container(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 16.0), // Add padding here
+                          padding: EdgeInsets.symmetric(horizontal: 16.0),
                           decoration: BoxDecoration(
                             border: Border(
                               bottom: BorderSide(
@@ -157,12 +173,21 @@ class _KodeNegaraDialogState extends State<KodeNegaraDialog> {
                             ),
                           ),
                           child: ListTile(
-                            leading: Text(negara['flag']),
+                            leading: Text(
+                              negara['flag'],
+                              style: TextStyle(fontSize: 28),
+                            ),
                             title: Text(
                               negara['nama'],
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
                             ),
-                            trailing: Text(negara['kode']),
+                            trailing: Text(
+                              negara['kode'],
+                              style: TextStyle(fontSize: 18),
+                            ),
                           ),
                         );
                       },
