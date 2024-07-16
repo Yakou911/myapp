@@ -4,7 +4,8 @@ import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:myapp/contri.dart';
 import 'package:myapp/loginpage.dart';
 import 'package:myapp/popup_contry.dart';
-import 'package:myapp/login1.dart';
+import 'package:myapp/loginljt.dart';
+import 'package:myapp/popup_cookie.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -181,7 +182,7 @@ class _LoginState extends State<Login> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                  MaterialPageRoute(builder: (context) => const LoginScreen()),
                 ); // Handle issue with number
               },
               child: Column(
@@ -213,10 +214,11 @@ class _LoginState extends State<Login> {
                   padding: const EdgeInsets.all(12.0),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginScreen()),
-                ); 
+                showModalBottomSheet(
+                  context: context,
+                  builder: (context) =>
+                    CookiePopup(), // This allows the bottom sheet to be full screen
+                  );
                 },
                 child: const Text(
                   'Continue',

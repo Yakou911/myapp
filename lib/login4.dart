@@ -1,27 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/login.dart';
-import 'package:myapp/login4.dart';
 
-class LoginScreen3 extends StatefulWidget {
-  const LoginScreen3({super.key});
+class LoginScreen4 extends StatefulWidget {
+  const LoginScreen4({super.key});
 
   @override
-  State<LoginScreen3> createState() => _LoginScreen3State();
+  State<LoginScreen4> createState() => _LoginScreen4State();
 }
 
-class _LoginScreen3State extends State<LoginScreen3> {
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(const Duration(seconds: 4), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => LoginScreen4()),
-      );
-    });
-  }
-
+class _LoginScreen4State extends State<LoginScreen4> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -113,17 +101,17 @@ class _LoginScreen3State extends State<LoginScreen3> {
                           Row(
                             children: [
                               Icon(
-                                Icons.access_time,
-                                color: Colors.grey,
+                                Icons.check_circle,
+                                color: Colors.green,
                                 size: 30,
                               ),
                               SizedBox(width: 16),
                               Text(
-                                'Verifikasi link',
+                                'link masuk terverifikasi',
                                 style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.grey),
+                                ),
                               ),
                             ],
                           ),
@@ -137,7 +125,7 @@ class _LoginScreen3State extends State<LoginScreen3> {
                               ),
                               SizedBox(width: 16),
                               Text(
-                                'Masuk ke akun',
+                                'Lagi mau masuk...',
                                 style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,

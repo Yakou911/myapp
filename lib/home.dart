@@ -1,252 +1,249 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
-  _HomePageState createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              _buildAppBar(),
-              _buildSearchBar(),
-              _buildGopayCard(),
-              _buildMainServices(),
-              _buildXPCard(),
-              _buildNearbySection(),
-              _buildPromotions(),
-            ],
-          ),
+      appBar: AppBar(
+        title: Row(
+          children: [
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 1,
+                      blurRadius: 5,
+                      offset: Offset(0, 3), // Shadow only below the container
+                    ),
+                  ],
+                ),
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Find services, food, or places',
+                    prefixIcon: Icon(Icons.search, color: Colors.grey),
+                    border: InputBorder.none,
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(width: 15),
+            GestureDetector(
+              onTap: () {
+                // Action when profile picture is clicked
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 1,
+                      blurRadius: 5,
+                      offset: Offset(0, 3), // Shadow only below the container
+                    ),
+                  ],
+                ),
+                child: CircleAvatar(
+                  radius: 25,
+                  backgroundColor: Colors.white,
+                  child: Container(
+                    width: 30,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: AssetImage('images/icon_profil.png'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        elevation: 0,
+        automaticallyImplyLeading: false, // Remove the back arrow
       ),
-      bottomNavigationBar: _buildBottomNavBar(),
-    );
-  }
-
-  Widget _buildAppBar() {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text('19:20', style: TextStyle(fontWeight: FontWeight.bold)),
-          Row(
-            children: [
-              Icon(Icons.signal_cellular_alt),
-              Icon(Icons.wifi),
-              Icon(Icons.battery_full),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildSearchBar() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: TextField(
-        decoration: InputDecoration(
-          hintText: 'Find services, food, or places',
-          prefixIcon: Icon(Icons.search),
-          suffixIcon: Icon(Icons.person_outline),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildGopayCard() {
-    return Container(
-      margin: EdgeInsets.all(16),
-      padding: EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.blue[700],
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('gopay', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-              Text('Rp7,434', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-            ],
-          ),
-          SizedBox(height: 8),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              _buildGopayOption(Icons.add, 'Top Up'),
-              _buildGopayOption(Icons.payment, 'Pay'),
-              _buildGopayOption(Icons.explore, 'Explore'),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildGopayOption(IconData icon, String label) {
-    return Column(
-      children: [
-        Icon(icon, color: Colors.white),
-        SizedBox(height: 4),
-        Text(label, style: TextStyle(color: Colors.white)),
-      ],
-    );
-  }
-
-  Widget _buildMainServices() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: GridView.count(
-        shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
-        crossAxisCount: 4,
-        children: [
-          _buildServiceItem(Icons.motorcycle, 'GoRide', Colors.green),
-          _buildServiceItem(Icons.car_rental, 'GoCar', Colors.green),
-          _buildServiceItem(Icons.fastfood, 'GoFood', Colors.red),
-          _buildServiceItem(Icons.local_shipping, 'GoSend', Colors.green),
-          _buildServiceItem(Icons.shopping_cart, 'GoMart', Colors.red),
-          _buildServiceItem(Icons.phone_android, 'GoPulsa', Colors.blue),
-          _buildServiceItem(Icons.star, 'GoClub', Colors.purple),
-          _buildServiceItem(Icons.more_horiz, 'More', Colors.grey),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildServiceItem(IconData icon, String label, Color color) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          padding: EdgeInsets.all(8),
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Container(
+          width: double.infinity,
+          height: 100,
           decoration: BoxDecoration(
-            color: color,
-            borderRadius: BorderRadius.circular(8),
+            color: Color(0xFF398BBF), // Background color sesuai gambar
+            borderRadius: BorderRadius.circular(15),
           ),
-          child: Icon(icon, color: Colors.white),
-        ),
-        SizedBox(height: 4),
-        Text(label, style: TextStyle(fontSize: 12)),
-      ],
-    );
-  }
-
-  Widget _buildXPCard() {
-    return Container(
-      margin: EdgeInsets.all(16),
-      padding: EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.blue[100],
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Row(
-        children: [
-          Icon(Icons.star, color: Colors.blue),
-          SizedBox(width: 8),
-          Text('121 XP to your next treasure'),
-          Spacer(),
-          Icon(Icons.chevron_right),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildNearbySection() {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('Restos near me', style: TextStyle(fontWeight: FontWeight.bold)),
-          SizedBox(height: 8),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey),
-              borderRadius: BorderRadius.circular(16),
-            ),
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
             child: Row(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Icon(Icons.restaurant, size: 16),
-                SizedBox(width: 4),
-                Text('Best-seller in my area'),
+                // Gopay balance section
+                Container(
+                  padding: EdgeInsets.all(10),
+                  width: 150,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Row(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Image.asset('images/gopay.png',
+                                  height:
+                                      20), // Ganti dengan path logo Gopay Anda
+                              SizedBox(width: 5),
+                              Text(
+                                'gopay',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Text(
+                            'Rp7.434',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            'Tap for history',
+                            style: TextStyle(
+                              color: Colors.green,
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                // Action buttons
+                Padding(
+                  padding: const EdgeInsets.all(14.0),
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              // Action when top up button is clicked
+                            },
+                            child: Container(
+                              width: 30,
+                              height: 30,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                      'images/add_ico.png'), // Ganti dengan path icon top up Anda
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            'Top Up',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 15),
+                      Column(
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              // Action when pay button is clicked
+                            },
+                            child: Container(
+                              width: 30,
+                              height: 30,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                      'images/pay_ico.png'), // Ganti dengan path icon pay Anda
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            'Pay',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 15),
+                      Column(
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              // Action when explore button is clicked
+                            },
+                            child: Container(
+                              width: 30,
+                              height: 30,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                      'images/explore_ico.png'), // Ganti dengan path icon explore Anda
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            'Explore',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
+}
 
-  Widget _buildPromotions() {
-    return Column(
-      children: [
-        _buildPromotionCard('Makin Seru 😄', 'Aktifkan & Sambungkan GoPay & GoPayLater di Tokopedia', Colors.blue),
-        _buildPromotionCard('Makin Seru 😄', 'Sambungin Akun ke Tokopedia, Banyakin Untung', Colors.green),
-        _buildPromotionCard('Makin Seru 😄', 'Promo Belanja Online 10.10: Cashback hingga Rp100.000', Colors.blue),
-      ],
-    );
-  }
-
-  Widget _buildPromotionCard(String title, String subtitle, Color color) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(title, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
-                SizedBox(height: 4),
-                Text(subtitle, style: TextStyle(color: Colors.white)),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildBottomNavBar() {
-    return BottomNavigationBar(
-      currentIndex: _selectedIndex,
-      onTap: _onItemTapped,
-      type: BottomNavigationBarType.fixed,
-      items: [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.local_offer), label: 'Promos'),
-        BottomNavigationBarItem(icon: Icon(Icons.receipt), label: 'Orders'),
-        BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chat'),
-      ],
-    );
-  }
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-    // Here you can add logic to change the displayed page based on the selected index
-  }
+void main() {
+  runApp(MaterialApp(
+    home: HomePage(),
+  ));
 }

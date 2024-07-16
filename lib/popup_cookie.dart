@@ -20,7 +20,7 @@ class CookiePopup extends StatelessWidget {
           Padding(
             padding:
                 const EdgeInsets.only(top: 6, left: 35, right: 35, bottom: 0),
-            child: Image.asset('images/stop.png', width: 300, height: 120),
+            child: Image.asset('images/stop.png', width: 300, height: 130),
           ),
           Padding(
             padding: const EdgeInsets.only(

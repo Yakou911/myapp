@@ -4,6 +4,7 @@ import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:myapp/contri.dart';
 import 'package:myapp/login.dart';
 import 'package:myapp/popup_contry.dart';
+import 'package:myapp/popup_cookie.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -196,7 +197,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     padding: const EdgeInsets.all(12.0),
                   ),
                   onPressed: () {
-                    // Handle continue action
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (context) =>
+                    CookiePopup(), // This allows the bottom sheet to be full screen
+                  );// Handle continue action
                   },
                   child: const Text(
                     'Continue',
