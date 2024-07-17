@@ -9,6 +9,7 @@ import 'package:myapp/Onboarding5.dart';
 import 'package:myapp/home.dart';
 import 'package:myapp/login.dart';
 import 'package:myapp/login1.dart';
+import 'package:myapp/map_actifation.dart';
 import 'package:myapp/report.dart';
 
 class loginpage extends StatelessWidget {
@@ -104,7 +105,7 @@ class _LoginPageState extends State<LoginPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const Login()),
+                              builder: (context) => const MapActivation()),
                         );
                       },
                       child: const Text(

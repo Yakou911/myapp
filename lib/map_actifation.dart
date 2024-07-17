@@ -1,7 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/home.dart';
 
-class MapActivation extends StatelessWidget {
+class MapActivation extends StatefulWidget {
   const MapActivation({super.key});
+
+  @override
+  State<MapActivation> createState() => _MapActivationState();
+}
+
+class _MapActivationState extends State<MapActivation> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 4), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomePage()),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +32,7 @@ class MapActivation extends StatelessWidget {
             children: [
               SizedBox(height: 168),
               Image.asset(
-                'assets/images/map.png',
+                'images/map.png',
                 height: 200,
               ),
               SizedBox(height: 15),
