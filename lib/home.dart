@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg_provider/flutter_svg_provider.dart';
+import 'package:myapp/profil.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -45,7 +45,10 @@ class _HomePageState extends State<HomePage> {
               SizedBox(width: 15),
               GestureDetector(
                 onTap: () {
-// Action when profile picture is clicked
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Profil()),
+                  );
                 },
                 child: Container(
                   decoration: BoxDecoration(

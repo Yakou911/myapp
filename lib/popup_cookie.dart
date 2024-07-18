@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/login3.dart';
+import 'package:myapp/login1.dart';
 
 class CookiePopup extends StatelessWidget {
   const CookiePopup({Key? key}) : super(key: key);
@@ -80,7 +80,7 @@ class CookiePopup extends StatelessWidget {
                         // Navigate to LoginScreen
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                              builder: (context) => LoginScreen3()),
+                              builder: (context) => const LoginScreen1()),
                         );
                       },
                       child: const Text(

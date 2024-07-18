@@ -6,11 +6,7 @@ import 'package:myapp/Onboarding2.dart';
 import 'package:myapp/Onboarding3.dart';
 import 'package:myapp/Onboarding4.dart';
 import 'package:myapp/Onboarding5.dart';
-import 'package:myapp/home.dart';
 import 'package:myapp/login.dart';
-import 'package:myapp/login1.dart';
-import 'package:myapp/map_actifation.dart';
-import 'package:myapp/report.dart';
 
 class loginpage extends StatelessWidget {
   const loginpage({super.key});
@@ -105,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const MapActivation()),
+                              builder: (context) => const Login()),
                         );
                       },
                       child: const Text(

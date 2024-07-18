@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/login2.dart';
 import 'package:myapp/profil.dart';
 import 'package:myapp/login.dart';
-import 'package:myapp/login1.dart';
-import 'package:myapp/contri.dart';
 import 'package:myapp/home.dart';
 import 'package:myapp/popup_cookie.dart';
-import 'package:myapp/report.dart';
+import 'package:myapp/promo.dart';
 import 'package:myapp/promo.dart';
 import 'package:myapp/loginpage.dart';
 

@@ -14,17 +14,8 @@ class _ProfilState extends State<Profil> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Row(
+        title: const Row(
           children: [
-            Container(
-              width: 30,
-              height: 25,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: Svg('images/panah.svg'),
-                ),
-              ),
-            ),
             SizedBox(width: 2),
             Text('Profilku', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 19)),
           ],

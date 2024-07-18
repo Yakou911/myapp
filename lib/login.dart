@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
-import 'package:myapp/contri.dart';
 import 'package:myapp/loginpage.dart';
 import 'package:myapp/popup_contry.dart';
 import 'package:myapp/loginljt.dart';
@@ -20,6 +19,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,

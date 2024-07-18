@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/home.dart';
+import 'package:myapp/navbar.dart';
 
 class MapActivation extends StatefulWidget {
   const MapActivation({super.key});
@@ -15,7 +15,7 @@ class _MapActivationState extends State<MapActivation> {
     Future.delayed(const Duration(seconds: 4), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => HomePage()),
+        MaterialPageRoute(builder: (context) => Navbar()),
       );
     });
   }
